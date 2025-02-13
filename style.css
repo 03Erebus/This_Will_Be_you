@@ -296,7 +296,7 @@ footer{
 
 }
 
-.fa-smile{
+.fa-smile, .fa-heart{
     font-size: 18px;
     color: #FFAFCC;
     margin: 0 5px;
