@@ -1,0 +1,453 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    min-height: 100vh;
+    background-image:linear-gradient(to bottom, rgb(94, 161, 238), rgb(240, 241, 142), 
+    rgba(243, 238, 222, 0.2)) ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: black;
+    font-family: poppins;
+}
+
+/*   book */
+
+input{
+    display: none;
+}
+
+.con-book{
+    width: 430px;
+    height: 580px;
+    position: relative;
+    cursor: pointer;
+    transition-duration: 1s;
+}
+
+.cover, .back-cover{
+    width: 100%;
+    height: 100%;
+    border-radius: 0 12px 12px 0;
+    box-shadow: 10px 0 20px rgba(0, 0, 0, 0.4);
+    transform-origin: center left;
+    transform-style: preserve-3d;
+    background-color: #8ECAE6;
+}
+
+.cover{
+    position: absolute;
+    z-index: 9;
+    transition: transform 1s;
+    display: flex;
+    justify-content: center;
+}
+
+.cover img{
+    width: 100%;
+    height: 100%;
+}
+
+.cover label{
+    cursor: pointer;
+}
+
+
+.front-cover{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    box-sizing: border-box;
+    border-radius: 0 12px 12px 0;
+    background-image: url(/images/cover.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.open i, .close i{
+    margin: 0 10px;
+}
+
+.back{
+    transform: rotateY(180deg);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(171, 195, 218);
+    backface-visibility: hidden;
+    box-sizing: border-box;
+    border-radius: 12px 0 0 12px;
+}
+
+.back-cover{
+    position: relative;
+    z-index: -1;
+    align-content: center;
+}
+
+.flower{
+    width: 100%;
+}
+
+.open, .close{
+    position:absolute;
+    bottom: 1em;
+    background-color: #FFAFCC;
+    padding: 5px;
+    color: aliceblue;
+    font-size: 18px;
+    text-align: center;
+    
+}
+
+.open{
+    right: 0;
+    border-radius: 8px 0 0 8px;
+}
+
+.close{
+    border-radius: 0 8px 8px 0;
+}
+
+
+.page{
+    z-index: 1;
+    position: absolute;
+    background-color: #fff;
+    width: 400px;
+    height: 550px;
+    border-radius: 0 12px 12px 0;
+    margin-top: 10px;
+    transform-origin: left;
+    transform-style: preserve-3d;
+    transform: rotateY(0deg);
+    transition-duration: 1.5s;
+    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.4);
+}
+
+
+.front-page{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    box-sizing: border-box;
+    padding: 1rem;
+    border-radius: 0 12px 12px 0;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+}
+
+.front-page img{
+    margin: 0 5px;
+    width: 6.5%;
+    height: 6.5%;
+}
+
+.front-page h1 span{
+    color: #FFAFCC;
+    font-weight: bolder;
+}
+
+.back-page{
+    transform: rotateY(180deg);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(207, 218, 228);
+    backface-visibility: hidden;
+    box-sizing: border-box;
+    padding: 1rem;
+    border-radius: 12px 0 0 12px;
+}
+
+.next, .prev{
+    position:absolute;
+    bottom: 1em;
+    cursor: pointer;
+}
+
+.next{
+    right: 1em;
+}
+
+.prev{
+    left: 1em;
+}
+
+#page1 {
+    z-index: 8;
+}
+#page2 {
+    z-index: 7;
+}
+#page3 {
+    z-index: 6;
+}
+#page4 {
+    z-index: 5;
+}
+#page5 {
+    z-index: 4;
+}
+#page6 {
+    z-index: 3;
+}
+#page7 {
+    z-index: 2;
+}
+#page8 {
+    z-index: 1;
+}
+#page9{
+    z-index: 0;
+}
+
+#checkbox-cover:checked ~ .con-book{
+    transform: translateX(200px);
+}
+
+#checkbox-cover:checked ~ .con-book .cover{
+    transition: transform 1.5s, z-index 0.5s 0.5s;
+    transform: rotateY(-180deg);
+    z-index: 1;
+}
+
+#checkbox-page1:checked ~ .con-book #page1{
+    transition: transform 1.5s, z-index 0.5s 0.5s;
+    transform: rotateY(-180deg);
+    z-index: 2;
+}
+
+#checkbox-page2:checked ~ .con-book #page2{
+    transition: transform 1.5s, z-index 0.5s 0.5s;
+    transform: rotateY(-180deg);
+    z-index: 3;
+}
+
+#checkbox-page3:checked ~ .con-book #page3{
+    transition: transform 1.5s, z-index 0.5s 0.5s;
+    transform: rotateY(-180deg);
+    z-index: 4;
+}
+#checkbox-page4:checked ~ .con-book #page4{
+    transition: transform 1.5s, z-index 0.5s 0.5s;
+    transform: rotateY(-180deg);
+    z-index: 5;
+}
+
+#checkbox-page5:checked ~ .con-book #page5{
+    transition: transform 1.5s, z-index 0.5s 0.5s;
+    transform: rotateY(-180deg);
+    z-index: 5;
+}
+
+#checkbox-page6:checked ~ .con-book #page6{
+    transition: transform 1.5s, z-index 0.5s 0.5s;
+    transform: rotateY(-180deg);
+    z-index: 5;
+}
+
+#checkbox-page7:checked ~ .con-book #page7{
+    transition: transform 1.5s, z-index 0.5s 0.5s;
+    transform: rotateY(-180deg);
+    z-index: 5;
+}
+
+#checkbox-page8:checked ~ .con-book #page8{
+    transition: transform 1.5s, z-index 0.5s 0.5s;
+    transform: rotateY(-180deg);
+    z-index: 5;
+}
+
+#checkbox-page9:checked ~ .con-book #page9{
+    transition: transform 1.5s, z-index 0.5s 0.5s;
+    transform: rotateY(-180deg);
+    z-index: 5;
+}
+
+footer{
+    position: fixed;
+    width: 100%;
+    height: 10%;
+    bottom: 0;
+    z-index: 1;
+    background-image:linear-gradient(to top, rgb(94, 161, 238), rgb(240, 241, 142), 
+    rgba(243, 238, 222, 0.2)) ;
+    display: flex;
+    padding: 1em;
+}
+
+.logo{
+    width: auto;
+    height: 50px;
+
+}
+
+.fa-smile{
+    font-size: 18px;
+    color: #FFAFCC;
+    margin: 0 5px;
+}
+
+/*     Responsive Screen Resolutions (Max-width)     */
+
+@media screen and (max-width: 640px){
+    body{
+        height: auto;
+    }
+
+    .con-book{
+        width: 70%;
+        height: 100%;
+    }
+
+    .cover, .back-cover{
+        width: 70%;
+    }
+
+    .front-cover{
+        background-position: center;
+    }
+
+    .open, .close{
+        font-size: 14px;
+    }
+
+    .front-page{
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .front-page img{
+        width: 20px;
+        height: 20px;
+        margin: 0 auto;
+    }
+
+    .page{
+        width: 60%;
+        height: 90%;
+        font: 14px;
+    }
+    #checkbox-cover:checked ~ .con-book{
+        transform: translateX(200px);
+    }
+    .logo{
+        width: 100px;
+        height: 50px;
+    }
+}
+
+@media screen and (max-width: 390px){
+    body{
+        height: auto;
+    }
+
+    .con-book{
+        width: 70%;
+        height: 100%;
+    }
+
+    .cover, .back-cover{
+        width: 70%;
+    }
+
+    .front-cover{
+        background-position: center;
+    }
+
+    .open, .close{
+        font-size: 12px;
+    }
+
+    .front-page{
+        font-size: 12px;
+        line-height: 20px;
+    }
+
+    .front-page img{
+        width: 20px;
+        height: 20px;
+        margin: 0 auto;
+    }
+
+    .page{
+        width: 60%;
+        height: 90%;
+        font: 12px;
+    }
+    #checkbox-cover:checked ~ .con-book{
+        transform: translateX(100px);
+    }
+    .logo{
+        width: 80px;
+        height: 40px;
+    }
+}
+
+@media screen and (max-width: 280px) {
+    body{
+        height: auto;
+    }
+
+    .con-book{
+        width: 70%;
+        height: 100%;
+    }
+
+    .cover, .back-cover{
+        width: 70%;
+    }
+
+    .front-cover{
+        background-position: center;
+    }
+
+    .open, .close{
+        font-size: 10px;
+    }
+
+    .front-page{
+        font-size: 10px;
+    }
+
+    .front-page img{
+        width: 20px;
+        height: 20px;
+        margin: 0 auto;
+    }
+    .front-page h1{
+        line-height: 20px;
+    }
+    .page{
+        width: 65%;
+        height: 100%;
+        font: 10px;
+        line-height: 10px;
+    }
+    #checkbox-cover:checked ~ .con-book{
+        transform: translateX(100px);
+    }
+    .logo{
+        width: 100px;
+        height: 50px;
+    }
+
+    footer{
+        width: 50%;
+        height: auto;
+    }
+}
